@@ -30,7 +30,7 @@ class Customer {
 
       this.cart.forEach((item, index) => {
         const wrapper = document.createElement("div");
-        wrapper.classList.add("card", "w-60", "mb-1");
+        wrapper.classList.add("card", "w-60", "mb-1", "bg-light");
 
         const container = document.createElement("div");
         container.classList.add("row", "g-0");

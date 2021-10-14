@@ -35,13 +35,13 @@ const createUl = (product) => {
   ul.classList.add("list-group", "list-group-flush", "mb-2");
 
   const priceLi = document.createElement("li");
-  priceLi.classList.add("list-group-item");
+  priceLi.classList.add("list-group-item", "bg-transparent");
   priceLi.innerHTML = `Price: <strong>${product.price}</strong> kr`;
   const ratingLi = document.createElement("li");
-  ratingLi.classList.add("list-group-item");
+  ratingLi.classList.add("list-group-item", "bg-transparent");
   ratingLi.innerHTML = `Rating: ${product.rating}`;
   const stockLi = document.createElement("li");
-  stockLi.classList.add("list-group-item");
+  stockLi.classList.add("list-group-item", "bg-transparent");
   stockLi.innerHTML = `Stock: ${product.stock}`;
 
   ul.appendChild(priceLi);
@@ -53,7 +53,7 @@ const createUl = (product) => {
 
 const createButton = (product) => {
   const buttonWrapper = document.createElement("div");
-  buttonWrapper.classList.add("card-footer", "bg-white", "mb-2");
+  buttonWrapper.classList.add("card-footer", "bg-transparent", "mb-2");
   const buyBtn = document.createElement("button");
   buyBtn.classList.add("btn", "btn-primary");
   buyBtn.innerText = "Add To Cart";
@@ -71,7 +71,7 @@ const createButton = (product) => {
 const createProduct = (product, filterValue = 0) => {
   if (product.rating >= filterValue) {
     const wrapper = document.createElement("div");
-    wrapper.classList.add("card", "mb-5");
+    wrapper.classList.add("card", "mb-5", "bg-light");
     wrapper.style.width = "20rem";
 
     
