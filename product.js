@@ -5,11 +5,11 @@ const createImage = (product) => {
   image.classList.add("card-img-top", "mt-2")
   image.src = product.images[0].src.small;
   image.alt = product.images[0].alt;
-  image.addEventListener("click", () => {
-    customer.updateTotalPrice(product.price);
-    customer.addToCart(product);
-    customer.renderCart();
-  });
+  // image.addEventListener("click", () => {
+  //   customer.updateTotalPrice(product.price);
+  //   customer.addToCart(product);
+  //   customer.renderCart();
+  // });
   return image;
 };
 
@@ -32,8 +32,7 @@ const createTitle = (product) => {
 
 const createUl = (product) => {
   const ul = document.createElement("ul");
-  ul.classList.add("list-group");
-  ul.classList.add("list-group-flush");
+  ul.classList.add("list-group", "list-group-flush", "mb-2");
 
   const priceLi = document.createElement("li");
   priceLi.classList.add("list-group-item");
@@ -54,7 +53,7 @@ const createUl = (product) => {
 
 const createButton = (product) => {
   const buttonWrapper = document.createElement("div");
-  buttonWrapper.classList.add("card-body");
+  buttonWrapper.classList.add("card-footer", "bg-white", "mb-2");
   const buyBtn = document.createElement("button");
   buyBtn.classList.add("btn", "btn-primary");
   buyBtn.innerText = "Add To Cart";
@@ -73,10 +72,10 @@ const createProduct = (product, filterValue = 0) => {
   if (product.rating >= filterValue) {
     const wrapper = document.createElement("div");
     wrapper.classList.add("card", "mb-5");
-    wrapper.style.width = "18rem";
+    wrapper.style.width = "20rem";
 
+    
     wrapper.appendChild(createImage(product));
-
     wrapper.appendChild(createTitle(product));
     wrapper.appendChild(createUl(product));
     wrapper.appendChild(createButton(product));

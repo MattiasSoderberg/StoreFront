@@ -10,6 +10,8 @@ fetch(url)
     });
   });
 
+customer.renderCart();
+
 const filterInput = document.getElementById("filterInput");
 const filterBtn = document.getElementById("filterBtn");
 filterBtn.addEventListener("click", (e) => {
