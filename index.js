@@ -14,9 +14,10 @@ customer.renderCart();
 
 const filterInput = document.getElementById("filterInput");
 const filterBtn = document.getElementById("filterBtn");
-filterBtn.addEventListener("click", (e) => {
-  e.preventDefault();
+const form = document.getElementById("navForm")
 
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
   const filterValue = filterInput.value;
 
   clearProductList();
@@ -28,4 +29,6 @@ filterBtn.addEventListener("click", (e) => {
         createProduct(product, filterValue);
       });
     });
+
+    filterInput.value = ""
 });
