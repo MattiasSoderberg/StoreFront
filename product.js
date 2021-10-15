@@ -51,7 +51,7 @@ const createUl = (product) => {
   return ul;
 };
 
-const createButton = (product) => {
+const createButton = (product, wrapper) => {
   const buttonWrapper = document.createElement("div");
   buttonWrapper.classList.add("card-footer", "bg-transparent", "mb-2");
   const buyBtn = document.createElement("button");
@@ -60,7 +60,12 @@ const createButton = (product) => {
   buyBtn.addEventListener("click", () => {
     customer.updateTotalPrice(product.price);
     customer.addToCart(product);
-    customer.renderCart();
+    renderCart(customer);
+    updateItemsInCart(customer.cart.length)
+    wrapper.classList.add("scaleOnClick")
+    setTimeout(() => {
+      wrapper.classList.remove("scaleOnClick")
+    }, 100);
   });
 
   buttonWrapper.appendChild(buyBtn);
@@ -78,7 +83,7 @@ const createProduct = (product, filterValue = 0) => {
     wrapper.appendChild(createImage(product));
     wrapper.appendChild(createTitle(product));
     wrapper.appendChild(createUl(product));
-    wrapper.appendChild(createButton(product));
+    wrapper.appendChild(createButton(product, wrapper));
 
     productList.appendChild(wrapper);
   }

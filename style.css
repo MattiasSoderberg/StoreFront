@@ -5,3 +5,26 @@
 .btn:active {
     transform: scale(1.1);
 }
+
+.scaleOnClick {
+    animation: scaleUpAndBack 0.1s 1 forwards ease-in-out;
+}
+@keyframes scaleUpAndBack {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.scaleOnRemove {
+    animation: scaleDown 0.1s 1 forwards ease-in-out;
+}
+@keyframes scaleDown {
+    0% {transform: scale(1)}
+    100% {transform: scale(0);}
+}

@@ -10,7 +10,7 @@ fetch(url)
     });
   });
 
-customer.renderCart();
+renderCart(customer);
 
 const filterInput = document.getElementById("filterInput");
 const filterBtn = document.getElementById("filterBtn");
