@@ -73,8 +73,7 @@ const createButton = (product, wrapper) => {
   return buttonWrapper;
 };
 
-const createProduct = (product, filterValue = 0) => {
-  if (product.rating >= filterValue) {
+const createProduct = (product) => {
     const wrapper = document.createElement("div");
     wrapper.classList.add("card", "mb-5", "bg-light");
     wrapper.style.width = "20rem";
@@ -86,7 +85,6 @@ const createProduct = (product, filterValue = 0) => {
     wrapper.appendChild(createButton(product, wrapper));
 
     productList.appendChild(wrapper);
-  }
 };
 
 const clearProductList = () => {
