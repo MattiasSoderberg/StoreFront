@@ -2,31 +2,34 @@ const url = "https://mock-data-api.firebaseio.com/webb21/products.json";
 
 const customer = new Customer();
 
-let products = []
+let products = [];
+
 const fetchData = async (url) => {
-  let res = await fetch(url)
-  products = await res.json()
-}
+  await fetch(url)
+    .then((res) => res.json())
+    .then((data) => (products = data));
+
+  products.forEach((product) => {
+    createProduct(product);
+  });
+};
 
 const filterProducts = (filterValue) => {
-  const filteredProducts = products.filter(product => product.rating >= filterValue)
-  filteredProducts.forEach(product => {
-    createProduct(product)
-  })
-}
-fetchData(url)
+  const filteredProducts = products.filter(
+    (product) => product.rating >= filterValue
+  );
 
-setTimeout(() => {
-  products.forEach(product => {
-    createProduct(product)
-  })
-}, 1000);
+  filteredProducts.forEach((product) => {
+    createProduct(product);
+  });
+};
 
+fetchData(url);
 renderCart(customer);
 
 const filterInput = document.getElementById("filterInput");
 const filterBtn = document.getElementById("filterBtn");
-const form = document.getElementById("navForm")
+const form = document.getElementById("navForm");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -34,7 +37,7 @@ form.addEventListener("submit", (e) => {
 
   clearProductList();
 
-  filterProducts(filterValue)
+  filterProducts(filterValue);
 
-    filterInput.value = ""
+  filterInput.value = "";
 });
