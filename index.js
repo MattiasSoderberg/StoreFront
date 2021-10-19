@@ -15,13 +15,22 @@ const fetchData = async (url) => {
 };
 
 const filterProducts = (filterValue) => {
-  const filteredProducts = products.filter(
-    (product) => product.rating >= filterValue
-  );
+  clearProductList();
+  if (filterValue) {
+    console.log(filterValue);
+    const filteredProducts = products.filter(
+      (product) => product.rating >= filterValue
+    );
 
-  filteredProducts.forEach((product) => {
-    createProduct(product);
-  });
+    filteredProducts.forEach((product) => {
+      createProduct(product);
+    });
+  }
+  else {
+    products.forEach(product => {
+      createProduct(product)
+    })
+  }
 };
 
 fetchData(url);
@@ -34,8 +43,6 @@ const form = document.getElementById("navForm");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const filterValue = filterInput.value;
-
-  clearProductList();
 
   filterProducts(filterValue);
 
